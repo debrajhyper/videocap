@@ -1,4 +1,4 @@
 type Caption = {
-    timestamp: number | string;
+    timestamp: number;
     text: string;
 }
