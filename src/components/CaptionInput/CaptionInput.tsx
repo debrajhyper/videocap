@@ -7,7 +7,7 @@ export const CaptionInput: React.FC<CaptionInputProps> = ({ captions, setCaption
     const [text, setText] = useState<string>('');
 
     const addCaption = () => {
-        setCaptions([...captions, { timestamp, text }]);
+        setCaptions([...captions,{ timestamp: Number(timestamp), text }]);
         setTimestamp(0);
         setText('');
     };
