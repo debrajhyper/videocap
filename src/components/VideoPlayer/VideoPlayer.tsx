@@ -1,32 +1,40 @@
 import { useEffect, useState, useRef } from 'react';
-import ReactPlayer from 'react-player/lazy';
 import './VideoPlayer.css'
+import ReactPlayer from 'react-player/lazy';
 
 export const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl, captions }) => {
+    // State to manage the current caption being displayed
     const [currentCaption, setCurrentCaption] = useState<string>('');
+    // Ref to access the ReactPlayer instance
     const playerRef = useRef<ReactPlayer>(null);
 
     useEffect(() => {
+        // Set up an interval to check the current time of the video
         const interval = setInterval(() => {
             const currentTime = playerRef.current?.getCurrentTime() || 0;
+            // Find the active caption based on the current time
             const activeCaption = captions.find(
                 (caption) => currentTime >= caption.timestamp && currentTime < caption.timestamp + .9
             );
+            // Update the current caption state
             setCurrentCaption(activeCaption ? activeCaption.text : '');
         }, 500); // Check every 500ms
 
+        // Clear the interval when the component unmounts or captions change
         return () => clearInterval(interval);
     }, [captions]);
 
     return (
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+            {/* Video player with controls */}
             <ReactPlayer
                 className='react-player'
-                url={videoUrl}  
+                url={videoUrl}
                 controls
                 ref={playerRef}
                 style={{ position: 'relative', margin: '0 auto' }}
             />
+            {/* Display the current caption */}
             {currentCaption && (
                 <div
                     style={{

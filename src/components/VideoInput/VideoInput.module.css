@@ -1,13 +1,6 @@
 .wrapper {
     margin: 0 auto;
     margin-top: 3rem;
-
-    /* @media (min-width: em(36)) {
-        width: 100%;
-    }
-    @media (min-width: em(48)) {
-        width: 100%;
-    } */
 }
 
 .button {
