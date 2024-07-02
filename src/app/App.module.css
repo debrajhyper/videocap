@@ -1,0 +1,24 @@
+.top_text {
+    letter-spacing: .2rem;
+    @media (max-width: $mantine-breakpoint-sm) {
+        letter-spacing: .1rem;
+    }
+}
+
+.title {
+    text-align: center;
+    font-size: 4rem;
+    margin: -15px auto;
+
+    @media (max-width: $mantine-breakpoint-sm) {
+        font-size: 2.5rem;
+        margin: -10px auto;
+    }
+}
+
+.text {
+    @media (max-width: $mantine-breakpoint-sm) {
+        font-size: 1rem;
+        line-height: 120%;
+    }
+}
