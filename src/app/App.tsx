@@ -38,46 +38,45 @@ function App() {
           <VideoInput videoUrl={videoUrl} setVideoUrl={setVideoUrl} />
         </Flex>
         {/* Grid to layout the components */}
-        <Grid justify="space-between" align="stretch"
-          p={{ base: 20, sm: 70, md: 20, lg: 40 }}
-          pt={{ base: 20, sm: 40, md: 80, lg: 100 }}
-          pb={{ base: 100, md: 150, lg: 230 }}
-          overflow='hidden'
-          w='100%'
-        >
-          {/* Column for the caption input */}
-          <Grid.Col span={{ base: 12, md: 4, lg: 3 }} m='0 auto'>
-            {
-              videoUrl &&
+        {
+          videoUrl &&
+          <Grid justify="space-between" align="stretch"
+            p={{ base: 20, sm: 70, md: 20, lg: 40 }}
+            pt={{ base: 20, sm: 40, md: 80, lg: 100 }}
+            pb={{ base: 100, md: 150, lg: 230 }}
+            overflow='hidden'
+            w='100%'
+          >
+            {/* Column for the caption input */}
+            <Grid.Col span={{ base: 12, md: 4, lg: 3 }} m='0 auto'>
               <Paper shadow="xs" withBorder p="xl" h={'100%'}>
                 <CaptionInput captions={captions} setCaptions={setCaptions} />
               </Paper>
-            }
-          </Grid.Col>
-          {/* Column for the video player */}
-          <Grid.Col span="auto">
-            <VideoPlayer videoUrl={videoUrl} captions={captions} />
-          </Grid.Col>
-          {/* Column for displaying added captions */}
-          <Grid.Col span={{ base: 12, md: 4, lg: 3 }}>
-            {
-              captions.length > 0 &&
-              <Paper shadow="xs" withBorder p="xl" h={'100%'}>
-                <Text fw={800} c='violet'>Video captions:</Text>
-                {
-                  captions.map((caption: Caption, index: number) => {
-                    return (
-                      <span key={index}>
-                        <Text>{caption.timestamp}s: {caption.text}</Text>
-                      </span>
-                    )
-                  })
-                }
-              </Paper>
-            }
-          </Grid.Col>
-        </Grid>
-        <Text ta='center' c='dimmed' mb={20}>Crafted by <a href='https://linkedin.com/in/debrajkarmakar010/' target='_blank'>Debraj Karmakar.</a></Text>
+            </Grid.Col>
+            {/* Column for the video player */}
+            <Grid.Col span="auto">
+              <VideoPlayer videoUrl={videoUrl} captions={captions} />
+            </Grid.Col>
+            {/* Column for displaying added captions */}
+            <Grid.Col span={{ base: 12, md: 4, lg: 3 }}>
+              {
+                captions.length > 0 &&
+                <Paper shadow="xs" withBorder p="xl" h={'100%'}>
+                  <Text fw={800} c='violet'>Video captions:</Text>
+                  {
+                    captions.map((caption: Caption, index: number) => {
+                      return (
+                        <span key={index}>
+                          <Text>{caption.timestamp}s: {caption.text}</Text>
+                        </span>
+                      )
+                    })
+                  }
+                </Paper>
+              }
+            </Grid.Col>
+          </Grid>
+        }
       </div>
     </main>
   );

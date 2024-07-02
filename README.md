@@ -1,5 +1,10 @@
 # Video Caption Generator
 
+🌐 Website: [videocap](https://videocap.vercel.app/)
+
+![alt text](image.png)
+![alt text](image-1.png)
+
 ## About
 
 The Video Caption App is a simple web application that allows users to add captions to a video at specific timestamps. This app ensures that captions are displayed synchronously with the video playback. Users can input video URLs, add captions with their corresponding timestamps, and view the video with captions overlaid on it.
