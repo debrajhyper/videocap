@@ -77,6 +77,7 @@ function App() {
             }
           </Grid.Col>
         </Grid>
+        <Text ta='center' c='dimmed' mb={20}>Crafted by <a href='https://linkedin.com/in/debrajkarmakar010/' target='_blank'>Debraj Karmakar.</a></Text>
       </div>
     </main>
   );

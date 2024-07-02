@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import classes from './CaptionInput.module.css'
-import { Button, Flex, Group, NumberInput, Textarea } from '@mantine/core';
+import { Button, Flex, Group, NumberInput, Textarea, Text } from '@mantine/core';
 
 export const CaptionInput: React.FC<CaptionInputProps> = ({ captions, setCaptions }) => {
     // State to manage the timestamp input for video
@@ -27,10 +27,11 @@ export const CaptionInput: React.FC<CaptionInputProps> = ({ captions, setCaption
             mih={50}
             gap="md"
             justify="center"
-            align="center"
+            align="start"
             direction="column"
             wrap="wrap"
         >
+            <Text fw={800} ta='left' c='violet'>Sync caption with video</Text>
             {/* Input for entering the timestamp of the caption */}
             <NumberInput
                 label="Caption Timestamp (in seconds)"

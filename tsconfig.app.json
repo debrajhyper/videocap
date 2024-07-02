@@ -23,10 +23,6 @@
       "@App/*": ["src/app/*"],
       "@Components": ["src/components/index"],
       "@Components/*": ["src/components/*"],
-      "@Constants": ["src/constants/index"],
-      "@Constants/*": ["src/constants/*"],
-      "@Utils": ["src/utils/index"],
-      "@Utils/*": ["src/utils/*"],
     },
 
     /* Linting */

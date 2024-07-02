@@ -33,7 +33,7 @@ export const VideoInput: React.FC<VideoInputProps> = ({ setVideoUrl }) => {
         <TextInput
             radius="md"
             size="md"
-            placeholder="Paste a link to a video"
+            placeholder="Paste a link of a video"
             rightSectionWidth='8.6rem'
             w={{ base: '90%', sm: '80%', md: '60%', lg: '40%' }}
             ref={videoInputRef}
