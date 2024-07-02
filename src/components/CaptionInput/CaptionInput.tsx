@@ -10,8 +10,13 @@ export const CaptionInput: React.FC<CaptionInputProps> = ({ captions, setCaption
 
     // Function to add a new caption to the captions list
     const addCaption = () => {
-        // Update the captions list state with the new caption
-        setCaptions([...captions, { timestamp: Number(timestamp), text }]);
+        // Create a new array with the current captions and the new caption
+        const newCaptions = [...captions, { timestamp: Number(timestamp), text }];
+        // Sort the new array by the timestamp
+        newCaptions.sort((a, b) => a.timestamp - b.timestamp);
+        // Update the state with the sorted array
+        setCaptions(newCaptions);
+
         // Reset the input fields
         setTimestamp(0);
         setText('');
