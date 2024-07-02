@@ -9,17 +9,26 @@ export const VideoInput: React.FC<VideoInputProps> = ({ setVideoUrl }) => {
     // Ref to access the value of the video URL input field
     const videoInputRef = useRef<HTMLInputElement>(null);
 
+    // Function to validate if a string is a valid URL
+    const isValidUrl = (urlString: string) => {
+        try {
+            const url = new URL(urlString);
+            return url.protocol === 'http:' || url.protocol === 'https:';
+        } catch (e) {
+            return false;
+        }
+    };
     // Handler function to validate the URL and update the video URL state
     const handleUrlClick = () => {
         setError('');
         const videoUrl = videoInputRef.current?.value
-        if (videoUrl === '' || videoUrl === undefined || videoUrl === null) {
+        if (!videoUrl || !isValidUrl(videoUrl)) {
             // Set an error message if the URL is empty or invalid
             return setError('Please enter a valid URL');
         }
         // Call the setVideoUrl function to update the video URL in the parent component
         setVideoUrl(videoUrl || '');
-    }
+    };
     return (
         <TextInput
             radius="md"

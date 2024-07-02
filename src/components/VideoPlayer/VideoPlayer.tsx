@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import './VideoPlayer.css'
 import ReactPlayer from 'react-player/lazy';
+import { Spinner } from '@Components/Loader/Spinner';
 
 export const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl, captions }) => {
     // State to manage the current caption being displayed
@@ -33,6 +34,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl, captions }) 
                 controls
                 ref={playerRef}
                 style={{ position: 'relative', margin: '0 auto' }}
+                fallback={<Spinner/>}
             />
             {/* Display the current caption */}
             {currentCaption && (
